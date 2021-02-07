@@ -1,6 +1,5 @@
   
-import React, { useState, useEffect } from 'react'
-import { useLazyQuery } from '@apollo/client'
+import React from 'react'
 import { ALL_AUTHORS, EDIT_YEAR } from '../queries'
 import { useQuery, useMutation} from '@apollo/client'
 

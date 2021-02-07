@@ -10,53 +10,31 @@ export const ALL_AUTHORS = gql`
     }
   }
 `
+const BOOK_DETAILS = gql`
+  fragment BookDetails on Book  {
+    title
+    published
+    author {
+      name
+      id
+      born
+      bookCount
+    }
+    genres
+    id
+  }
+`
 
 
 export const ALL_BOOKS = gql`
   query {
     allBooks  {
-        title
-        author
-        published
+      ...BookDetails
     }
   }
+  ${BOOK_DETAILS}
 `
 
-
-// const BOOK_DETAILS = gql`
-//   fragment BookDetails on Book {
-//     title
-//     published
-//     author {
-//       name
-//       born
-//       bookCount
-//     }
-//     id
-//     genres
-//   }
-// `
-
-
-// const BOOK_DETAILS = gql`
-//   fragment BookDetails on Book {
-//     title
-//     published
-//     author 
-//     id
-//     genres
-//   }
-//   `
-
-// const BOOK_DETAILS= qql ``
-// fragment BookDetailson CreateBook {
-//     title: String!,
-//     published: Int!,
-//     author: String!,
-//     id: ID!,
-//     genres: [String]
-//   }
-//   ` 
   
 export const CREATE_BOOK = gql`
   mutation createBook($title: String!, $author: String!, $published: Int, $genres: [String]) {
@@ -66,12 +44,13 @@ export const CREATE_BOOK = gql`
       published: $published,
       genres: $genres
       ){
-        title
-        author
-        published
+       ...BookDetails
       }
     }
+    ${BOOK_DETAILS}
     `
+
+    
     export const EDIT_YEAR = gql`
     mutation editAuthor($name: String!, $born: Int!) {
       editAuthor(
@@ -84,3 +63,27 @@ export const CREATE_BOOK = gql`
       }
     }
   `
+  export const LOGIN = gql`
+  mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password)  {
+      value
+    }
+  }
+`
+export const USER = gql`
+{
+  me {
+    username
+    favoriteGenre
+  }
+}
+
+`
+export const BOOK_ADDED = gql`
+  subscription {
+    bookAdded {
+      ...BookDetails
+    }
+  }
+  ${BOOK_DETAILS}
+`

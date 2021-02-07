@@ -4,7 +4,7 @@ import { CREATE_BOOK, ALL_BOOKS, ALL_AUTHORS } from '../queries'
 
 
 
-const NewBook = (props) => {
+const NewBook = ({ show, updateCacheWith }) => {
   const [title, setTitle] = useState('')
   const [author, setAuhtor] = useState('')
   let [published, setPublished] = useState('')
@@ -12,15 +12,16 @@ const NewBook = (props) => {
   const [genres, setGenres] = useState([])
 
   const [ createBook ] = useMutation(CREATE_BOOK, {
-    refetchQueries: [ { query: ALL_BOOKS }, { query: ALL_AUTHORS } ]
-    ,
-    // onError: (error) => {
-    //   setError(error.graphQLErrors[0].message)
-    // }
-  
+    onError: (error) => {
+      console.log(error)
+    },
+    update: (store, response) => {
+      updateCacheWith(response.data.addBook)
+    }
   })
 
-  if (!props.show) {
+
+  if (!show) {
     return null
   }
 
