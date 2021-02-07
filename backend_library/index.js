@@ -8,10 +8,7 @@ const jwt = require('jsonwebtoken')
 const { PubSub } = require('apollo-server')
 const config = require('./utils/config')
 const pubsub = new PubSub()
-// const bcrypt = require('bcrypt')
 
-// const JWT_SECRET = 'NEED_HERE_A_SECRET_KEY'
-// const MONGODB_URI = 'mongodb+srv://fullstack:121189@cluster0.kgpu3.mongodb.net/<dbname>?retryWrites=true&w=majority'
 const MONGODB_URI = config.MONGODB_URI
 const JWT_SECRET = process.env.JWT_SECRET
 
