@@ -32,11 +32,9 @@ const NewBook = ({ show, updateCacheWith }) => {
     published = parseInt(published)
    
     createBook({  variables: { title, author, published, genre } })
-    
 
     setTitle('')
     setPublished('')
-    console.log(  setPublished(''), "setPublished")
     setAuhtor('')
     setGenres([])
     setGenre('')

@@ -4,7 +4,7 @@ import Authors from './components/Authors'
 import Books from './components/Books'
 import NewBook from './components/NewBook'
 
-import { ALL_AUTHORS, ALL_BOOKS, USER, BOOK_ADDED } from './queries'
+import { ALL_BOOKS, USER, BOOK_ADDED } from './queries'
 import LoginForm from './components/LoginForm'
 import Recommendation from './components/Recomendation'
 

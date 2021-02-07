@@ -1,6 +1,6 @@
 import React , { useState, useEffect }from 'react'
 import { ALL_BOOKS } from '../queries'
-import { useQuery, useMutation, useSubscription } from '@apollo/client'
+import { useQuery} from '@apollo/client'
 import Select from 'react-select'
 
 const Books = (props) => {
@@ -34,35 +34,6 @@ const Books = (props) => {
   const select = async selectedGenre => {
     setFilteredGenre(selectedGenre);
   };
-
-// if (props.user) {
-
-//     let recommendations = (books.filter(book =>
-//       book.genres.find(genre => genre === props.user.favoriteGenre)));
-    
-//       return (
-//         <div>
-//           <h2>recommendations</h2>
-//           <p>books in your favourite genre <b>{props.user.favoriteGenre}</b></p>
-//           <table>
-//             <tbody>
-//               <tr>
-//                 <th></th>
-//                 <th>author</th>
-//                 <th>published</th>
-//               </tr>
-//               {recommendations.map(a => (
-//                 <tr key={a.title}>
-//                   <td>{a.title}</td>
-//                   <td>{a.author.name}</td>
-//                   <td>{a.published}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       );
-//   } else {
     return(  <div>
     
       <h2>Books</h2>
@@ -96,8 +67,7 @@ const Books = (props) => {
         </tbody>
       </table>
     
-    </div>)
-  
+    </div>) 
   }
 
 

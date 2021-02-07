@@ -28,11 +28,6 @@ const LoginForm = ({setError, setToken}) => {
     }
   }, [result.data]) // eslint-disable-line
 
-//   if (!props.show) {
-//     return null
-//     console.log("Login failed")
-// }
-
   const submit = async (event) => {
     event.preventDefault()
 
